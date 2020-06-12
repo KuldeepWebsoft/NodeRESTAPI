@@ -12,7 +12,7 @@ app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 
 app.listen(port, ip, () => {
-  console.log("The server started on port -" + server_port + "=" + server_ip_address);
+  console.log("The server started on port -" + port + "=" + ip);
 });
 
 app.get("/", (req, res) => {
