@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 var springedge = require('springedge');
 const details = require("./details.json");
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 
 app.listen(server_port, server_ip_address, () => {
-  console.log("The server started on port 3000 !!!!!!");
+  console.log("The server started on port -" + server_port + "=" + server_ip_address);
 });
 
 app.get("/", (req, res) => {
