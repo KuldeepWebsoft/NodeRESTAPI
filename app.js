@@ -4,14 +4,14 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 var springedge = require('springedge');
 const details = require("./details.json");
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
+var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080;
+var ip = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '0.0.0.0';
 
 const app = express();
 app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 
-app.listen(server_port, server_ip_address, () => {
+app.listen(port, ip, () => {
   console.log("The server started on port -" + server_port + "=" + server_ip_address);
 });
 
